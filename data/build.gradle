@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion appConfig.compileSdk
+
+    defaultConfig {
+        minSdkVersion appConfig.minSdk
+        targetSdkVersion appConfig.targetSdk
+
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api project(':network')
+
+    implementation libraries.kotlinStd
+
+    implementation libraries.rxKotlin
+    implementation libraries.rxAndroid
+    implementation libraries.retrofit
+    implementation libraries.retrofitGsonConverter
+    implementation libraries.dagger
+    implementation libraries.daggerAndroid
+
+    kapt compilers.dagger
+    kapt compilers.daggerAndroid
+
+    testImplementation unitTestLibraries.junit
+    testImplementation unitTestLibraries.mockito
+    testImplementation unitTestLibraries.assertj
+}
+
+androidExtensions {
+    experimental = true
+}
