@@ -7,13 +7,13 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import java.io.File
 
-class NetworkConfigurationImpl(private val context: Context) : NetworkConfiguration {
+open class NetworkConfigurationImpl(private val context: Context) : NetworkConfiguration {
 
     override fun mainThreadScheduler(): Scheduler = AndroidSchedulers.mainThread()
 
     override fun ioScheduler(): Scheduler = Schedulers.io()
 
-    override fun getHost() = "https://picsum.photos/"
+    override fun getHost() = "https://picsum.photos/"//"http://localhost:8081"
 
     override fun getCacheDir(): File = context.cacheDir
 

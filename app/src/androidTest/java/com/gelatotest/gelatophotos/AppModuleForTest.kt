@@ -15,10 +15,10 @@ import io.reactivex.disposables.CompositeDisposable
 import retrofit2.Retrofit
 
 @Module
-open class AppModule() {
+open class AppModuleForTest {
     @Provides
     open fun providesNetworkConfiguration(context: Context): NetworkConfiguration =
-        NetworkConfigurationImpl(context)
+        EspressoNetworkConfigurationImpl(context)
 
     @Provides
     fun providesNetworkLibrary(networkConfiguration: NetworkConfiguration) =

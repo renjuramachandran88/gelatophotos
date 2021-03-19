@@ -20,7 +20,7 @@ ext.appConfig = [
 ]
 
 ext.instrumentationConfig = [
-        testInstrumentationRunner: "com.sia.tech.kata.base.EspressoTechKataTestRunner",
+        testInstrumentationRunner: "com.gelatotest.gelatophotos.EspressoAppTestRunner",
 ]
 
 def devOptimizationEnabled() {
