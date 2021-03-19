@@ -1,6 +1,8 @@
 package com.gelatotest.gelatophotos
 
 import android.content.Context
+import com.gelatotest.data.DataLibrary
+import com.gelatotest.domain.DomainLibrary
 import com.gelatotest.gelatophotos.support.NetworkConfigurationImpl
 import com.gelatotest.network.NetworkLibrary
 import com.gelatotest.network.support.NetworkConfiguration
@@ -34,4 +36,11 @@ class AppModule {
 
     @Provides
     fun providesCompositeDisposable(): CompositeDisposable = CompositeDisposable()
+
+    @Provides
+    fun providesDomainLibrary(): DomainLibrary = DomainLibrary()
+
+    @Provides
+    fun providesDataLibrary(retrofit: Retrofit, networkConfiguration: NetworkConfiguration)
+            : DataLibrary = DataLibrary(retrofit, networkConfiguration)
 }

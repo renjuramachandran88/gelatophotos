@@ -45,6 +45,8 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
     implementation project(':network')
+    implementation project(':data')
+    implementation project(':domain')
 
     implementation libraries.kotlinStd
     implementation libraries.dagger
